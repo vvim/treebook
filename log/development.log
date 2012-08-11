@@ -1,0 +1,122 @@
+  [4;36;1mSQL (0.4ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (149.0ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (84.9ms)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateStatuses (20120811104141)
+  [4;36;1mSQL (0.5ms)[0m   [0;1mCREATE TABLE "statuses" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "content" text, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20120811104141')[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("statuses")[0m
+
+
+Processing StatusesController#index (for 127.0.0.1 at 2012-08-11 12:46:35) [GET]
+  [4;36;1mStatus Load (0.5ms)[0m   [0;1mSELECT * FROM "statuses" [0m
+Rendering template within layouts/statuses
+Rendering statuses/index
+Completed in 32ms (View: 26, DB: 1) | 200 OK [http://127.0.0.1/statuses]
+
+
+Processing StatusesController#new (for 127.0.0.1 at 2012-08-11 12:46:57) [GET]
+Rendering template within layouts/statuses
+Rendering statuses/new
+Completed in 16ms (View: 10, DB: 0) | 200 OK [http://127.0.0.1/statuses/new]
+
+
+Processing StatusesController#create (for 127.0.0.1 at 2012-08-11 12:47:04) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"gaXgrkGsCErEw6I1bFf2kbUi/c+AMKfQ6WjdafEVm/Q=", "status"=>{"name"=>"Wim", "content"=>"I'm on treebook!"}}
+  [4;35;1mStatus Create (0.4ms)[0m   [0mINSERT INTO "statuses" ("name", "created_at", "updated_at", "content") VALUES('Wim', '2012-08-11 10:47:04', '2012-08-11 10:47:04', 'I''m on treebook!')[0m
+Redirected to http://127.0.0.1:3000/statuses/1
+Completed in 135ms (DB: 0) | 302 Found [http://127.0.0.1/statuses]
+
+
+Processing StatusesController#show (for 127.0.0.1 at 2012-08-11 12:47:04) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mStatus Load (0.3ms)[0m   [0;1mSELECT * FROM "statuses" WHERE ("statuses"."id" = 1) [0m
+Rendering template within layouts/statuses
+Rendering statuses/show
+Completed in 14ms (View: 7, DB: 0) | 200 OK [http://127.0.0.1/statuses/1]
+
+
+Processing StatusesController#edit (for 127.0.0.1 at 2012-08-11 12:47:21) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mStatus Load (5.2ms)[0m   [0mSELECT * FROM "statuses" WHERE ("statuses"."id" = 1) [0m
+Rendering template within layouts/statuses
+Rendering statuses/edit
+Completed in 23ms (View: 11, DB: 5) | 200 OK [http://127.0.0.1/statuses/1/edit]
+
+
+Processing StatusesController#update (for 127.0.0.1 at 2012-08-11 12:47:28) [PUT]
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"gaXgrkGsCErEw6I1bFf2kbUi/c+AMKfQ6WjdafEVm/Q=", "id"=>"1", "status"=>{"name"=>"Wim", "content"=>"I'm still on treebook!"}}
+  [4;36;1mStatus Load (0.3ms)[0m   [0;1mSELECT * FROM "statuses" WHERE ("statuses"."id" = 1) [0m
+  [4;35;1mStatus Update (0.5ms)[0m   [0mUPDATE "statuses" SET "updated_at" = '2012-08-11 10:47:28', "content" = 'I''m still on treebook!' WHERE "id" = 1[0m
+Redirected to http://127.0.0.1:3000/statuses/1
+Completed in 318ms (DB: 1) | 302 Found [http://127.0.0.1/statuses/1]
+
+
+Processing StatusesController#show (for 127.0.0.1 at 2012-08-11 12:47:29) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mStatus Load (0.6ms)[0m   [0;1mSELECT * FROM "statuses" WHERE ("statuses"."id" = 1) [0m
+Rendering template within layouts/statuses
+Rendering statuses/show
+Completed in 10ms (View: 3, DB: 1) | 200 OK [http://127.0.0.1/statuses/1]
+
+
+Processing StatusesController#index (for 127.0.0.1 at 2012-08-11 12:47:34) [GET]
+  [4;35;1mStatus Load (0.5ms)[0m   [0mSELECT * FROM "statuses" [0m
+Rendering template within layouts/statuses
+Rendering statuses/index
+Completed in 12ms (View: 7, DB: 0) | 200 OK [http://127.0.0.1/statuses]
+
+
+Processing Rails::InfoController#properties (for 127.0.0.1 at 2012-08-11 12:49:44) [GET]
+  [4;36;1mSQL (0.8ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Completed in 144ms (View: 2, DB: 1) | 200 OK [http://127.0.0.1/rails/info/properties]
+
+
+Processing StatusesController#index (for 127.0.0.1 at 2012-08-11 12:50:01) [GET]
+  [4;36;1mStatus Load (0.5ms)[0m   [0;1mSELECT * FROM "statuses" [0m
+Rendering template within layouts/statuses
+Rendering statuses/index
+Completed in 84ms (View: 31, DB: 1) | 200 OK [http://127.0.0.1/statuses]
+
+
+Processing StatusesController#show (for 127.0.0.1 at 2012-08-11 12:50:05) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mStatus Load (0.2ms)[0m   [0mSELECT * FROM "statuses" WHERE ("statuses"."id" = 1) [0m
+Rendering template within layouts/statuses
+Rendering statuses/show
+Completed in 13ms (View: 7, DB: 0) | 200 OK [http://127.0.0.1/statuses/1]
+
+
+Processing StatusesController#index (for 127.0.0.1 at 2012-08-11 12:50:06) [GET]
+  [4;36;1mStatus Load (0.5ms)[0m   [0;1mSELECT * FROM "statuses" [0m
+Rendering template within layouts/statuses
+Rendering statuses/index
+Completed in 12ms (View: 7, DB: 1) | 200 OK [http://127.0.0.1/statuses]
+
+
+Processing StatusesController#index (for 127.0.0.1 at 2012-08-11 12:50:07) [GET]
+  [4;35;1mStatus Load (0.5ms)[0m   [0mSELECT * FROM "statuses" [0m
+Rendering template within layouts/statuses
+Rendering statuses/index
+Completed in 12ms (View: 7, DB: 0) | 200 OK [http://127.0.0.1/statuses]
