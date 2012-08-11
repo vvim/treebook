@@ -6,12 +6,26 @@
   <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
   <title>Statuses: <%= controller.action_name %></title>
   <%= stylesheet_link_tag 'scaffold' %>
+  <%= stylesheet_link_tag 'bootstrap' %>
+  <%= stylesheet_link_tag 'statuses' %>
+  <script src="/javascripts/statuses.js" type="text/javascript" charset="utf-8"></script> 
 </head>
 <body>
-
-<p style="color: green"><%= flash[:notice] %></p>
-
-<%= yield %>
-
+    
+    <p style="color: green"><%= flash[:notice] %></p>
+    <div class="navbar navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container">
+                <a href="#" class="brand">Treebook</a>
+                <ul class="nav">
+                    <li><%= link_to "All Statuses",statuses_path %></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <%= yield %>
+    </div>
+    
 </body>
 </html>
